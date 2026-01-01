@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calendário Escolar 2025</title>
+  <title>Calendário Escolar 2026</title>
   <style>
     * {
       box-sizing: border-box;
@@ -68,6 +68,8 @@
       transform: translateX(-50%);
       opacity: 0;
       transition: opacity 0.3s;
+      width: max-content;
+      max-width: 200px;
     }
     .day:hover .tooltip {
       visibility: visible;
@@ -84,104 +86,118 @@
   </style>
 </head>
 <body>
-  <div class="calendar-container">
-    <div class="month-header">
-      <button class="nav-btn" onclick="changeMonth(-1)">&larr;</button>
-      <h2 id="month-year"></h2>
-      <button class="nav-btn" onclick="changeMonth(1)">&rarr;</button>
-    </div>
-    <div class="calendar" id="calendar"></div>
+
+<div class="calendar-container">
+  <div class="month-header">
+    <button class="nav-btn" onclick="changeMonth(-1)">&larr;</button>
+    <h2 id="month-year"></h2>
+    <button class="nav-btn" onclick="changeMonth(1)">&rarr;</button>
   </div>
+  <div class="calendar" id="calendar"></div>
+</div>
 
-  <script>
-    const diasSemana = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
-    const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-                   'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-    let currentMonth = new Date().getMonth();
-    let currentYear = 2025;
+<script>
+  const diasSemana = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+  const meses = [
+    'Janeiro','Fevereiro','Março','Abril','Maio','Junho',
+    'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'
+  ];
 
-    const eventos = {
-      '2025-02-03': 'Abertura do Ano Letivo',
-      '2025-02-06': 'Reunião de pais',
-      '2025-02-10': 'Início do 1º Bimestre',
-      '2025-03-03': 'Carnaval',
-      '2025-03-06': 'Dia D - Fora da Escola não Pode',
-      '2025-05-01': 'Dia do Trabalhador',
-      '2025-05-05': 'Início do 2º Bimestre',
-'2025-05-06': 'Reunião de pais',
-'2025-05-31': 'Sábado letivo',
-      '2025-06-19': 'Corpus Christi',
-'2025-06-20': 'Ponto facultativo',
-      '2025-07-15': 'Término do 2º Bimestre',
-      '2025-08-01': 'Início do 3º Bimestre',
-      '2025-09-07': 'Independência do Brasil',
-'2025-09-11': 'SARAU',
-      '2025-09-30': 'Término do 3º Bimestre',
-      '2025-10-01': 'Início do 4º Bimestre',
-      '2025-10-15': 'Dia dos Professores',
-      '2025-11-20': 'Consciência Negra',
-'2025-11-28': 'Feira do Conhecimento',
-      '2025-12-18': 'Término do 4º Bimestre',
-      '2025-12-19': 'Encerramento do Ano Letivo'
-    };
+  let currentMonth = 0; // Janeiro
+  let currentYear = 2026;
 
-    function renderCalendar(month, year) {
-      const calendar = document.getElementById('calendar');
-      const monthYear = document.getElementById('month-year');
-      calendar.innerHTML = '';
+  const eventos = {
+    '2026-02-02': 'Abertura do Ano Letivo',
+    '2026-02-05': 'Reunião de pais',
+    '2026-02-09': 'Início do 1º Bimestre',
 
-      monthYear.textContent = `${meses[month]} ${year}`;
+    '2026-02-16': 'Carnaval',
+    '2026-02-17': 'Carnaval',
+    '2026-02-18': 'Quarta-feira de Cinzas',
 
-      // Cabeçalho com nomes dos dias
-      for (let i = 0; i < 7; i++) {
-        const dayName = document.createElement('div');
-        dayName.className = 'day-name';
-        dayName.textContent = diasSemana[i];
-        calendar.appendChild(dayName);
-      }
+    '2026-03-05': 'Dia D – Fora da Escola não Pode',
 
-      const firstDay = new Date(year, month, 1).getDay();
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
+    '2026-05-01': 'Dia do Trabalhador',
+    '2026-05-04': 'Início do 2º Bimestre',
+    '2026-05-07': 'Reunião de pais',
+    '2026-05-30': 'Sábado letivo',
 
-      // Preencher dias vazios antes do 1º dia do mês
-      for (let i = 0; i < firstDay; i++) {
-        const empty = document.createElement('div');
-        empty.className = 'day';
-        calendar.appendChild(empty);
-      }
+    '2026-06-04': 'Corpus Christi',
+    '2026-06-05': 'Ponto facultativo',
 
-      // Preencher os dias do mês
-      for (let d = 1; d <= daysInMonth; d++) {
-        const fullDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-        const day = document.createElement('div');
-        day.className = 'day';
-        day.textContent = d;
+    '2026-07-14': 'Término do 2º Bimestre',
 
-        if (eventos[fullDate]) {
-          day.classList.add('event');
-          const tooltip = document.createElement('div');
-          tooltip.className = 'tooltip';
-          tooltip.textContent = eventos[fullDate];
-          day.appendChild(tooltip);
-        }
+    '2026-08-03': 'Início do 3º Bimestre',
 
-        calendar.appendChild(day);
-      }
+    '2026-09-07': 'Independência do Brasil',
+    '2026-09-10': 'SARAU',
+    '2026-09-30': 'Término do 3º Bimestre',
+
+    '2026-10-01': 'Início do 4º Bimestre',
+    '2026-10-15': 'Dia dos Professores',
+
+    '2026-11-20': 'Consciência Negra',
+    '2026-11-27': 'Feira do Conhecimento',
+
+    '2026-12-17': 'Término do 4º Bimestre',
+    '2026-12-18': 'Encerramento do Ano Letivo'
+  };
+
+  function renderCalendar(month, year) {
+    const calendar = document.getElementById('calendar');
+    const monthYear = document.getElementById('month-year');
+    calendar.innerHTML = '';
+
+    monthYear.textContent = `${meses[month]} ${year}`;
+
+    diasSemana.forEach(dia => {
+      const dayName = document.createElement('div');
+      dayName.className = 'day-name';
+      dayName.textContent = dia;
+      calendar.appendChild(dayName);
+    });
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    for (let i = 0; i < firstDay; i++) {
+      const empty = document.createElement('div');
+      empty.className = 'day';
+      calendar.appendChild(empty);
     }
 
-    function changeMonth(step) {
-      currentMonth += step;
-      if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-      } else if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
-      }
-      renderCalendar(currentMonth, currentYear);
-    }
+    for (let d = 1; d <= daysInMonth; d++) {
+      const fullDate = `${year}-${String(month + 1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+      const day = document.createElement('div');
+      day.className = 'day';
+      day.textContent = d;
 
+      if (eventos[fullDate]) {
+        day.classList.add('event');
+        const tooltip = document.createElement('div');
+        tooltip.className = 'tooltip';
+        tooltip.textContent = eventos[fullDate];
+        day.appendChild(tooltip);
+      }
+
+      calendar.appendChild(day);
+    }
+  }
+
+  function changeMonth(step) {
+    currentMonth += step;
+    if (currentMonth > 11) {
+      currentMonth = 0;
+      currentYear++;
+    } else if (currentMonth < 0) {
+      currentMonth = 11;
+      currentYear--;
+    }
     renderCalendar(currentMonth, currentYear);
-  </script>
+  }
+
+  renderCalendar(currentMonth, currentYear);
+</script>
+
 </body>
 </html>
