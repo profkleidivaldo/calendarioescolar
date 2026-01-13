@@ -107,42 +107,79 @@
   let currentYear = 2026;
 
   const eventos = {
-    '2026-02-02': 'Abertura do Ano Letivo',
-    '2026-02-05': 'Reunião de pais',
-    '2026-02-09': 'Início do 1º Bimestre',
+  // FEVEREIRO
+  '2026-02-06': 'Abertura do Ano Letivo',
+  '2026-02-09': 'Início do 1º Bimestre',
+  '2026-02-16': 'Carnaval',
+  '2026-02-17': 'Carnaval',
 
-    '2026-02-16': 'Carnaval',
-    '2026-02-17': 'Carnaval',
-    '2026-02-18': 'Quarta-feira de Cinzas',
+  // MARÇO
+  '2026-03-04': 'Dia D – Lançamento dos Trabalhos do PME',
+  '2026-03-02': 'Início do período de Avaliação Externa e Portfólio',
+  '2026-03-31': 'Término do período de Avaliação Externa e Portfólio',
 
-    '2026-03-05': 'Dia D – Fora da Escola não Pode',
+  // ABRIL
+  '2026-04-02': 'Dia Mundial de Conscientização do Autismo',
+  '2026-04-03': 'Feriado – Sexta-feira Santa',
+  '2026-04-11': 'Sábado Letivo',
+  '2026-04-21': 'Feriado – Tiradentes',
+  '2026-04-30': 'Encerramento do 1º Bimestre',
 
-    '2026-05-01': 'Dia do Trabalhador',
-    '2026-05-04': 'Início do 2º Bimestre',
-    '2026-05-07': 'Reunião de pais',
-    '2026-05-30': 'Sábado letivo',
+  // MAIO
+  '2026-05-01': 'Feriado – Dia do Trabalhador',
+  '2026-05-04': 'Início do 2º Bimestre',
+  '2026-05-04': 'Início dos Jogos Escolares Municipais (JEMs)',
+  '2026-05-29': 'Encerramento dos Jogos Escolares Municipais (JEMs)',
 
-    '2026-06-04': 'Corpus Christi',
-    '2026-06-05': 'Ponto facultativo',
+  // JUNHO
+  '2026-06-04': 'Feriado – Corpus Christi',
+  '2026-06-13': 'Sábado Letivo',
+  '2026-06-22': 'Início da Avaliação Diagnóstica PAIC/PROALFA',
+  '2026-06-26': 'Término da Avaliação Diagnóstica PAIC/PROALFA',
 
-    '2026-07-14': 'Término do 2º Bimestre',
+  // JULHO
+  '2026-07-01': 'Entrega de Portfólios – Estudantes com Deficiência',
+  '2026-07-02': 'Entrega de Portfólios – Estudantes com Deficiência',
+  '2026-07-06': 'Início da Avaliação Externa – 2º Ano',
+  '2026-07-10': 'Término da Avaliação Externa – 2º Ano',
+  '2026-07-14': 'Encerramento do 2º Bimestre',
+  '2026-07-15': 'Início das Férias Escolares',
+  '2026-07-29': 'Término das Férias Escolares',
+  '2026-07-30': 'Início do 3º Bimestre',
 
-    '2026-08-03': 'Início do 3º Bimestre',
+  // AGOSTO
+  '2026-08-05': 'Semana da Educação',
+  '2026-08-06': 'Semana da Educação',
+  '2026-08-10': 'Início do Intercâmbio – 4º e 5º Ano',
+  '2026-08-21': 'Término do Intercâmbio – 4º e 5º Ano',
 
-    '2026-09-07': 'Independência do Brasil',
-    '2026-09-10': 'SARAU',
-    '2026-09-30': 'Término do 3º Bimestre',
+  // SETEMBRO
+  '2026-09-05': 'Sábado Letivo',
+  '2026-09-07': 'Feriado – Independência do Brasil',
+  '2026-09-14': 'Início dos Jogos Escolares da Área Rural',
+  '2026-09-25': 'Término dos Jogos Escolares da Área Rural',
 
-    '2026-10-01': 'Início do 4º Bimestre',
-    '2026-10-15': 'Dia dos Professores',
+  // OUTUBRO
+  '2026-10-09': 'Encerramento do 3º Bimestre',
+  '2026-10-12': 'Dia da Criança / Nossa Senhora Aparecida',
+  '2026-10-13': 'Início do 4º Bimestre',
+  '2026-10-15': 'Dia do Professor',
+  '2026-10-28': 'Dia do Funcionário Público',
 
-    '2026-11-20': 'Consciência Negra',
-    '2026-11-27': 'Feira do Conhecimento',
+  // NOVEMBRO
+  '2026-11-02': 'Feriado – Finados',
+  '2026-11-07': 'Sábado Letivo',
+  '2026-11-20': 'Dia da Consciência Negra',
 
-    '2026-12-17': 'Término do 4º Bimestre',
-    '2026-12-18': 'Encerramento do Ano Letivo'
-  };
-
+  // DEZEMBRO
+  '2026-12-01': 'Início da Avaliação Externa – 2º Ano',
+  '2026-12-04': 'Término da Avaliação Externa – 2º Ano',
+  '2026-12-01': 'Entrega de Portfólios – Estudantes com Deficiência',
+  '2026-12-02': 'Entrega de Portfólios – Estudantes com Deficiência',
+  '2026-12-03': 'Início da Correção dos Portfólios',
+  '2026-12-17': 'Término da Correção dos Portfólios',
+  '2026-12-18': 'Encerramento do Ano Letivo'
+};
   function renderCalendar(month, year) {
     const calendar = document.getElementById('calendar');
     const monthYear = document.getElementById('month-year');
